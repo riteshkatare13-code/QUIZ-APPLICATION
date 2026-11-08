@@ -6,7 +6,7 @@ const quizzes = [
     category: "Marvel",
     image: "https://wallpapercave.com/wp/wp6566659.jpg",
     type: "Marvel STACK",
-    description: "marvel quiz competition",
+    description: "Marvel quiz competition",
     quiz: [
       {
         id: uuid(),
