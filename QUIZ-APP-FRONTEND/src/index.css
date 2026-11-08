@@ -109,3 +109,61 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+
+/* Branded Styling for the QUIZIFY Logo Text */
+.logo, 
+.navbar-brand, 
+.brand-title {
+  font-family: var(--heading);
+  font-weight: 800; /* Bold, professional look */
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  color: var(--accent); /* Uses your bright brand purple #aa3bff */
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Optional hover interaction for the logo link */
+.logo:hover, 
+.navbar-brand:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+/* Brand Wrapper Link */
+.navbar-brand-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Spaces out the logo image and the text */
+  text-decoration: none;
+  user-select: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.navbar-brand-wrapper:hover {
+  opacity: 0.9;
+  transform: translateY(-0.5px);
+}
+
+/* Brand Logo Image */
+.navbar-brand-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+/* Branded QUIZIFY Text */
+.navbar-brand-text {
+  font-family: var(--heading);
+  font-weight: 800; /* Thick modern bold style */
+  font-size: 22px;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  color: var(--accent); /* Inherits your vibrant brand purple (#aa3bff) */
+}
+

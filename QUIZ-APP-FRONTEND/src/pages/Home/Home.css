@@ -1,0 +1,38 @@
+/* Main Page Layout Container */
+main {
+  box-sizing: border-box;
+  padding: 40px 24px;
+  min-height: calc(100vh - 70px); /* Adjust 70px to match your Navbar height */
+  background-color: #fafafa; /* Clean, light neutral background */
+  width: 100%;
+}
+
+/* Utility Flexbox Classes (Matching your JSX attributes) */
+.d-flex {
+  display: flex;
+  flex-wrap: wrap; /* Allows cards to wrap to the next line on smaller screens */
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+/* Gap Variable Mapping */
+.gap-md {
+  gap: 32px; /* Balanced spacing between the dynamic quiz cards */
+}
+
+/* Responsive Micro-adjustments */
+@media (max-width: 768px) {
+  main {
+    padding: 24px 16px;
+  }
+  
+  .gap-md {
+    gap: 20px; /* Tighter gap on tablet and mobile screens */
+  }
+}

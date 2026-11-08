@@ -1,12 +1,14 @@
-import { Link } from 'react-router-dom'
-
+import { Link } from 'react-router-dom';
+import logoImg from '../../assets/react.svg'; // Replace with your quiz icon path
 
 export const Navbar = () => {
   return (
     <nav className="navbar sm:navbar-expand bg-1 fg-2">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
-          QUIZIFY
+        {/* Brand Container with Responsive Image Side */}
+        <Link className="navbar-brand-wrapper" to="/">
+          <img className="navbar-brand-logo" src={logoImg} alt="Quizify Logo" />
+          <span className="navbar-brand-text">QUIZIFY</span>
         </Link>
         <button
           className="btn-icon navbar-toggler"
@@ -19,9 +21,10 @@ export const Navbar = () => {
         >
           <span className="navbar-toggler-icon" aria-hidden="true"></span>
         </button>
+        {/* Fixed tabIndex below */}
         <dialog
           className="drawer drawer-end"
-          tabindex="-1"
+          tabIndex="-1"
           id="navbarNavAltMarkup"
           aria-labelledby="navbarNavAltMarkupLabel"
         >

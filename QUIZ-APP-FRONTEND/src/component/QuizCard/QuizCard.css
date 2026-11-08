@@ -1,0 +1,153 @@
+/* ==========================================================================
+   QuizCard Container & Dynamic Interactive Layout
+   ========================================================================== */
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 310px; /* Locked width ensures perfect consistency */
+  background-color: var(--bg);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--sans);
+  
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border); 
+  
+  transition: 
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+    box-shadow 0.4s ease, 
+    border-color 0.4s ease;
+}
+
+/* Dynamic Hover Effects */
+.container:hover {
+  transform: translateY(-6px) scale(1.01) rotateX(1deg) rotateY(1deg);
+  border-color: var(--accent-border);
+  box-shadow: 
+    0 15px 25px -5px rgba(170, 59, 255, 0.12), 
+    0 8px 10px -5px rgba(170, 59, 255, 0.08);
+}
+
+/* ==========================================================================
+   Reasonable Portrait Image Box (Balanced Height)
+   ========================================================================== */
+.img-box {
+  width: 100%;
+  aspect-ratio: 4 / 5; /* Image area remains perfectly identical for all cards */
+  max-height: 320px;   
+  overflow: hidden;
+  background-color: var(--code-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: center 15%; 
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Interactive zoom inside image frame */
+.container:hover .img {
+  transform: scale(1.05);
+}
+
+/* Graceful UI fallback layout for broken image links */
+.image-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--code-bg) 0%, var(--border) 100%);
+  font-size: 2.5rem;
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   Details Area & Text Formatting (Modified for Single-Line Cutoff)
+   ========================================================================== */
+.details {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-grow: 1; 
+  text-align: left;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--text-h);
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.container:hover .title {
+  color: var(--accent);
+}
+
+.description {
+  font-size: 0.88rem;
+  color: var(--text);
+  line-height: 1.45;
+
+  /* 
+     ALTERATION: Prevents text lines from breaking card alignment.
+     Forces all text onto exactly one line and crops extra content with '...'.
+  */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: block;
+}
+
+/* ==========================================================================
+   High-Contrast Button System
+   ========================================================================== */
+.button {
+  border: none;
+  outline: none;
+  padding: 14px; 
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: 
+    background-color 0.25s ease, 
+    color 0.25s ease, 
+    transform 0.1s ease;
+}
+
+.btn-primary {
+  background-color: var(--text-h);
+  color: var(--bg);              
+  border-top: 1px solid var(--border);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent); 
+  color: #ffffff;
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.direction-column {
+  flex-direction: column;
+}
+
+.cursor {
+  cursor: pointer;
+}
