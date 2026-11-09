@@ -4,14 +4,19 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
 
-import { Home } from './pages/Home/Home.jsx'
+import { Home, Login } from './pages/index.jsx'
+import { Route, Routes } from 'react-router-dom'
+
 
 
 function App() {
 
   return (
     <>
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/auth/login" element={<Login />}></Route>
+      </Routes>
     </>
   )
 }

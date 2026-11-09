@@ -44,8 +44,8 @@ export const Navbar = () => {
               <Link className="nav-link active" aria-current="page" to="/">
                 Home
               </Link>
-              <Link className="nav-link" to="/">
-                Quiz Play
+              <Link className="nav-link" to="/auth/login">
+                Login
               </Link>
             </div>
           </div>
