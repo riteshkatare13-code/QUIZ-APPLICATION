@@ -1,7 +1,26 @@
 import { Link } from 'react-router-dom';
 import logoImg from '../../assets/react.svg'; // Replace with your quiz icon path
 
+
+import { useAuth } from '../../context';
+import { useNavigate } from 'react-router-dom';
+
+
+
 export const Navbar = () => {
+
+  const navigate = useNavigate();
+
+  const token = localStorage.getItem("token");
+
+
+  const handleAuthClick = () => {
+    if(token){
+      localStorage.clear();
+    }
+    navigate("/auth/login")
+  }
+
   return (
     <nav className="navbar sm:navbar-expand bg-1 fg-2">
       <div className="container-fluid">
@@ -44,8 +63,8 @@ export const Navbar = () => {
               <Link className="nav-link active" aria-current="page" to="/">
                 Home
               </Link>
-              <Link className="nav-link" to="/auth/login">
-                Login
+              <Link className="nav-link" to="/auth/login" onClick={handleAuthClick}>
+                {token ? "Logout" : "Login"}
               </Link>
             </div>
           </div>

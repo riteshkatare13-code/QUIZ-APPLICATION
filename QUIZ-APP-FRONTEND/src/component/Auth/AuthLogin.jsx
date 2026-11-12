@@ -1,11 +1,16 @@
 import { useAuth } from "../../context/index"
 import "./Auth.css"
 
+import { LoginHandler } from "../../services/auth-services";
+
+import { useNavigate } from "react-router-dom";
+
 export const AuthLogin = () => {
+
+    const navigate = useNavigate();
 
     const { username, password, authDispatch } = useAuth();
 
-    console.log({username, password})
 
     const onUsernameChange = (e) => {
         authDispatch({
@@ -23,6 +28,34 @@ export const AuthLogin = () => {
     }
 
 
+    const handleLoginClick = (e) => {
+        e.preventDefault();
+        const token = LoginHandler(username, password);
+        if(token){
+            navigate("/")
+        }
+        authDispatch({
+            type: "TOKEN",
+            payload: token
+        })
+        authDispatch({
+            type: "CLEAR_CREDENTIALS"
+        })
+    }
+
+
+    const handleTestCredentialsClick =() => {
+        const token = LoginHandler("riteshkatare", "P@ss%665")
+        if(token){
+            navigate("/");
+        }
+        authDispatch({
+            type: "TOKEN",
+            payload: token
+        })
+    }
+
+
 
     return(
 
@@ -30,7 +63,7 @@ export const AuthLogin = () => {
             <div className="login-auth d-flex direction-column justify-center">
                 <h2 className="auth-title">Login</h2>
 
-                <form>
+                <form onSubmit={handleLoginClick}>
                     <div className="form-container">
                         <label className="form-label">Username</label>
                         <input placeholder="username" required onChange={onUsernameChange}/>
@@ -43,6 +76,10 @@ export const AuthLogin = () => {
 
                     <div className="cta">
                         <button className="button login-btn btn-margin cursor sign-up-btn">Login</button>
+                    </div>
+
+                    <div>
+                        <button className="button login-btn btn-outline-primary btn-margin  sign-up-btn" onClick={handleTestCredentialsClick}>Login with Test Credentials</button>
                     </div>
                 </form>
             </div>
