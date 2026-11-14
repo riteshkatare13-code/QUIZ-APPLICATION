@@ -1,0 +1,268 @@
+/* Basic Layout Utilities */
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.container-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.gap {
+  gap: 14px;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+/* Page Background */
+.qna-main {
+  min-height: 100vh;
+  padding: 16px;
+  background-color: #f4f4f5;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #18181b;
+  box-sizing: border-box;
+}
+
+/* Quiz Card */
+.question-dialog {
+  width: 100%;
+  max-width: 560px;
+  background-color: #ffffff;
+  border: 2px solid #18181b;
+  border-radius: 8px;
+  padding: 0 24px 24px 24px;
+  box-shadow: 5px 5px 0px #18181b;
+  gap: 16px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Full-Width Iron Man Banner */
+.card-banner {
+  position: relative;
+  margin: 0 -24px;
+  height: 145px;
+  background-color: #000000;
+  border-bottom: 2px solid #18181b;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+}
+
+/* MARVEL STACK Badge */
+.qna-title {
+  position: absolute;
+  bottom: 10px;
+  left: 16px;
+  margin: 0;
+  padding: 5px 12px;
+  background-color: #ec1d24;
+  border: 2px solid #18181b;
+  color: #ffffff;
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  line-height: 1;
+  box-shadow: 2px 2px 0px #18181b;
+}
+
+/* Score & Question Counter */
+.qna-score {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #fafafa;
+  border: 1.5px solid #e4e4e7;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #3f3f46;
+}
+
+.score {
+  background-color: #ec1d24;
+  color: #ffffff;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+/* Question Text */
+.question {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #18181b;
+  line-height: 1.4;
+  padding: 4px 0;
+}
+
+/* 2x2 Grid Layout for Options (Matching Reference Image) */
+.options-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 16px;
+  margin: 4px 0;
+}
+
+/* Hexagonal / Pointed-End Option Buttons */
+.option {
+  position: relative;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 24px;
+  background-color: #18181b; /* Outer border color */
+  border: none;
+  color: #18181b;
+  font-family: 'Arial Black', 'Impact', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  justify-content: flex-start;
+  text-align: left;
+  /* Creates the angled hexagon / pointed left & right ends */
+  clip-path: polygon(14px 0%, calc(100% - 14px) 0%, 100% 50%, calc(100% - 14px) 100%, 14px 100%, 0% 50%);
+  transition: transform 0.12s ease, background-color 0.15s ease;
+  z-index: 1;
+}
+
+/* Inner White Fill + Marvel Red Left Accent inside the Hexagon */
+.option::before {
+  content: "";
+  position: absolute;
+  inset: 2px; /* Creates a crisp 2px outer border */
+  background-color: #ffffff;
+  border-left: 5px solid #ec1d24;
+  clip-path: polygon(13px 0%, calc(100% - 13px) 0%, 100% 50%, calc(100% - 13px) 100%, 13px 100%, 0% 50%);
+  z-index: -1;
+  transition: background-color 0.15s ease;
+}
+
+/* Hover State: Stark Gold Border + Marvel Red Fill */
+.option:hover {
+  background-color: #facc15;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.option:hover::before {
+  background-color: #ec1d24;
+  border-left-color: #facc15;
+}
+
+.option:active {
+  transform: translateY(1px);
+}
+
+/* Answer Feedback States */
+.option.correct {
+  background-color: #18181b;
+  color: #ffffff;
+}
+
+.option.correct::before {
+  background-color: #16a34a;
+  border-left-color: #14532d;
+}
+
+.option.wrong {
+  background-color: #18181b;
+  color: #fecaca;
+}
+
+.option.wrong::before {
+  background-color: #991b1b;
+  border-left-color: #450a0a;
+}
+
+/* Bottom Action Controls - Balanced & Centered under Grid */
+.nxt-btn-container {
+  width: 100%;
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1.5px solid #e4e4e7;
+}
+
+.nxt-btn-container .d-flex {
+  width: 100%;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.play-btn {
+  flex: 1; /* Makes QUIT and Next Question equal width */
+  padding: 11px 18px;
+  border-radius: 5px;
+  font-family: 'Arial Black', 'Impact', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: 2px solid #18181b;
+  box-shadow: 3px 3px 0px #18181b;
+  text-align: center;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+}
+
+.play-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #18181b;
+}
+
+/* QUIT Button (Left) */
+.nxt-btn-container .play-btn:first-child {
+  background-color: #ffffff;
+  color: #18181b;
+}
+
+.nxt-btn-container .play-btn:first-child:hover {
+  background-color: #f4f4f5;
+}
+
+/* Next Question Button (Right) */
+.nxt-btn-container .play-btn:nth-child(2) {
+  background-color: #facc15;
+  color: #18181b;
+}
+
+.nxt-btn-container .play-btn:nth-child(2):hover {
+  background-color: #eab308;
+}
+
+/* Hide stray empty button */
+.nxt-btn-container button:empty {
+  display: none;
+}
+
+/* Mobile Stacking */
+@media (max-width: 480px) {
+  .question-dialog {
+    padding: 0 16px 20px 16px;
+  }
+
+  .card-banner {
+    margin: 0 -16px;
+    height: 120px;
+  }
+
+  .options-box {
+    grid-template-columns: 1fr; /* Stacks cleanly on narrow phones */
+  }
+
+  .nxt-btn-container .d-flex {
+    flex-direction: column-reverse;
+  }
+}

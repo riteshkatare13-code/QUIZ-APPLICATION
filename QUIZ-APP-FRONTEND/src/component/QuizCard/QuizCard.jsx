@@ -4,6 +4,8 @@ import "./QuizCard.css"
 
 export  const QuizCard = ({category}) => {
 
+    const { image, type, description } = category;
+
     const { token } = useAuth();
 
     const navigate = useNavigate();
@@ -23,12 +25,12 @@ export  const QuizCard = ({category}) => {
 
         <div className="container d-flex direction-column">
             <div className="img-box">
-                <img className="img" src={category.image} alt="quizCard"></img>
+                <img className="img" src={image} alt="quizCard"></img>
             </div>
 
             <div className="details">
-                <h3 className="title">{category.type}</h3>
-                <span>{category.description} </span>
+                <h3 className="title">{type}</h3>
+                <span>{description} </span>
             </div>
 
             <button className="button play-now-btn btn-primary cursor" onClick={handlePlayNowClick}>Play Now</button>

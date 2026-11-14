@@ -1,14 +1,29 @@
-import { Navbar } from "../../component"
+import { Fragment, useState, useEffect } from "react"
+import { Navbar, QuestionAndOptions } from "../../component"
+
 
 export const Quiz = () => {
 
+
+    const [quiz, setQuiz] = useState([]);
+
+    useEffect(() => {
+        (async () =>{
+            try{
+                const { data } = await axios.get("http://localhost:3000/categories");
+                setQuiz(data)
+            }catch(err){
+                console.log(err);
+            }
+        }) ();
+    }, [])
+
     return(
 
-        <div>
+        <Fragment>
 
             <Navbar />
-
-            <h1>QUIZ PAGE</h1>
-        </div>
+            <QuestionAndOptions />
+        </Fragment>
     )
 }
