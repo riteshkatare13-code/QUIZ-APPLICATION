@@ -4,8 +4,7 @@ const userdata = require('../db/users');
 const { v4: uuid } = require('uuid');
 
 
-SECRET_TOKEN = "7b19e43371db1419bfb3fc72a3f69383607e58fcb2f06104dc4995391d10e1d1"
-
+const SECRET_TOKEN = process.env.SECRET_TOKEN;
 
 
 

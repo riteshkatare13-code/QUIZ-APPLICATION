@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const quizRouter = require('./router/quiz.router');
@@ -5,6 +6,8 @@ const {loginRouter, signupRouter} = require('./router/auth.router');
 const { authVerify } = require("./router/quiz.router");
 const pageNotFound = require("./middleware/pageNotFound");
 const categoryRouter = require('./router/categoryRouter');
+
+
 
 const app = express();
 
